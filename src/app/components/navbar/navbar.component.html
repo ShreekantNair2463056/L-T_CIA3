@@ -1,0 +1,9 @@
+<mat-toolbar color="primary">
+  <span>Employee Dashboard</span>
+  <span class="spacer"></span>
+  <a mat-button routerLink="/">Home</a>
+  <a mat-button routerLink="/employees" *ngIf="authService.isLoggedIn$ | async">Employees</a>
+  <a mat-button routerLink="/employees/new" *ngIf="authService.isLoggedIn$ | async">Add Employee</a>
+  <a mat-button routerLink="/login" *ngIf="!(authService.isLoggedIn$ | async)">Login</a>
+  <button mat-button (click)="logout()" *ngIf="authService.isLoggedIn$ | async">Logout</button>
+</mat-toolbar>
